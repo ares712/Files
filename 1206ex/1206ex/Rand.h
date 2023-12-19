@@ -17,13 +17,12 @@ public:
 	bool player1Turn = false; // 선공여부
 	bool player2Turn = false;
 
+	int player1;
+	int player2;
+
 	int player1Score = 0; // 플레이어1 점수
 	int player2Score = 0; // 플레이어2 점수
 	int input; // 입력 값;
-	int random; // 랜덤 수;
-
-	map<int, string> player1; // 플레이어1
-	map<int, string> player2; // 플레이어2
 
 };
 
