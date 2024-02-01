@@ -4,9 +4,10 @@ void BingoChar::BoardMixNumber()
 {
     srand(GetTickCount64());
 
+    // 0 ~ 25 까지 숫자 생성
     for (int i = 0; i < 5; ++i)
     {
-        for (int j = 0; j < 5; ++j) // 0 ~ 25 까지 숫자 생성
+        for (int j = 0; j < 5; ++j)
         {
             bingoBoard[i][j] = (i * 5 + j) + 1;
         }
@@ -25,9 +26,10 @@ void BingoChar::BoardMixNumber()
 
 void BingoChar::StartBingo()
 {
-
+    // 생성된 숫자의 위치를 랜덤으로 섞는다
     BoardMixNumber();
 
+    // 빙고판 출력
     while (true)
     {
         cout << "==========================" << endl;
@@ -75,39 +77,44 @@ void BingoChar::StartBingo()
         }
 
         // 빙고 조건
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; ++i)
         {
-            if (bingoBoard[i][0] == 0 && // 가로 빙고
-                bingoBoard[i][1] == 0 &&
-                bingoBoard[i][2] == 0 &&
-                bingoBoard[i][3] == 0 &&
-                bingoBoard[i][4] == 0)
+            for (int j = 0; j < 5; ++j)
             {
-                bingoScore++;
-            }
-            else if (bingoBoard[0][i] == 0 && // 세로 빙고
-                bingoBoard[1][i] == 0 &&
-                bingoBoard[2][i] == 0 &&
-                bingoBoard[3][i] == 0 &&
-                bingoBoard[4][i] == 0)
-            {
-                bingoScore++;
-            }
-            else if (bingoBoard[0][0] == 0 && // 대각선 빙고(왼쪽 위)
-                bingoBoard[1][1] == 0 &&
-                bingoBoard[2][2] == 0 &&
-                bingoBoard[3][3] == 0 &&
-                bingoBoard[4][4] == 0)
-            {
-                bingoScore++;
-            }
-            else if (bingoBoard[0][4] == 0 && // 대각선 빙고(오른쪽 위)
-                bingoBoard[1][3] == 0 &&
-                bingoBoard[2][2] == 0 &&
-                bingoBoard[3][1] == 0 &&
-                bingoBoard[4][0])
-            {
-                bingoScore++;
+                if (bingoBoard[i][0] == 0 && // 가로 빙고
+                    bingoBoard[i][1] == 0 &&
+                    bingoBoard[i][2] == 0 &&
+                    bingoBoard[i][3] == 0 &&
+                    bingoBoard[i][4] == 0)
+                {
+                    bingoScore++;
+                }
+                else if (bingoBoard[0][j] == 0 && // 세로 빙고
+                    bingoBoard[1][j] == 0 &&
+                    bingoBoard[2][j] == 0 &&
+                    bingoBoard[3][j] == 0 &&
+                    bingoBoard[4][j] == 0)
+                {
+                    bingoScore++;
+                }
+
+                /*
+                else if (bingoBoard[i][0] == 0 && // 대각선 빙고(왼쪽 위)
+                    bingoBoard[i][1] == 0 &&
+                    bingoBoard[i][2] == 0 &&
+                    bingoBoard[i][3] == 0 &&
+                    bingoBoard[i][4] == 0)
+                {
+                    bingoScore++;
+                }
+                else if (bingoBoard[0][4] == 0 && // 대각선 빙고(오른쪽 위)
+                    bingoBoard[1][3] == 0 &&
+                    bingoBoard[2][2] == 0 &&
+                    bingoBoard[3][1] == 0 &&
+                    bingoBoard[4][0])
+                {
+                    bingoScore++;
+                }*/
             }
         }
     }
