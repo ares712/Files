@@ -84,53 +84,226 @@ void BingoChar::StartBingo()
             for (int j = 0; j < 5; ++j)
             {
                 // 가로 빙고 여부
-                if (!width)
+
+                // 가로 1번째 줄 빙고 여부
+                if (!width1)
                 {
-                    if (bingoBoard[i][0] == 0 &&
-                        bingoBoard[i][1] == 0 &&
-                        bingoBoard[i][2] == 0 &&
-                        bingoBoard[i][3] == 0 &&
-                        bingoBoard[i][4] == 0)
+                    // 1번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][0] == 0 &&  // 1칸 검사
+                        bingoBoard[0][1] == 0 &&  // 2칸 검사
+                        bingoBoard[0][2] == 0 &&  // 3칸 검사
+                        bingoBoard[0][3] == 0 &&  // 4칸 검사
+                        bingoBoard[0][4] == 0)    // 5칸 검사
                     {
-                        bingoScore++;
-                        width = true;
+                        bingoScore++;  // 점수 +1
+                        width1 = true; // 점수 중복 부여 방지
                     }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (width1) continue;
                 }
-                else if (width) return;
                 
-                // 세로 빙고 여부
-                if (!height)
+                // 가로 2번째 줄 빙고 여부
+                if (!width2)
                 {
-                    if (bingoBoard[0][j] == 0 &&
-                        bingoBoard[1][j] == 0 &&
-                        bingoBoard[2][j] == 0 &&
-                        bingoBoard[3][j] == 0 &&
-                        bingoBoard[4][j] == 0)
+                    // 2번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[1][0] == 0 && // 1칸 검사
+                        bingoBoard[1][1] == 0 && // 2칸 검사
+                        bingoBoard[1][2] == 0 && // 3칸 검사
+                        bingoBoard[1][3] == 0 && // 4칸 검사
+                        bingoBoard[1][4] == 0)   // 5칸 검사
                     {
-                        bingoScore++;
-                        height = true;
+                        bingoScore++;   // 점수 +1
+                        width2 = true;  // 점수 중복 부여 방지
                     }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (width2) continue;
                 }
-                else if (height) return;
-                
-                /*
-                if (bingoBoard[i][0] == 0 && // 대각선 빙고(왼쪽 위)
-                    bingoBoard[i][1] == 0 &&
-                    bingoBoard[i][2] == 0 &&
-                    bingoBoard[i][3] == 0 &&
-                    bingoBoard[i][4] == 0)
+
+                // 가로 3번째 줄 빙고 여부
+                if (!width3)
                 {
-                    bingoScore++;
+                    // 3번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[2][0] == 0 && // 1칸 검사
+                        bingoBoard[2][1] == 0 && // 2칸 검사
+                        bingoBoard[2][2] == 0 && // 3칸 검사
+                        bingoBoard[2][3] == 0 && // 4칸 검사
+                        bingoBoard[2][4] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;  // 점수 +1
+                        width3 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (width3) continue;
                 }
-                
-                if (bingoBoard[0][4] == 0 && // 대각선 빙고(오른쪽 위)
-                    bingoBoard[1][3] == 0 &&
-                    bingoBoard[2][2] == 0 &&
-                    bingoBoard[3][1] == 0 &&
-                    bingoBoard[4][0])
+
+                // 가로 4번째 줄 빙고 여부
+                if (!width4)
                 {
-                    bingoScore++;
-                }*/
+                    // 4번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[3][0] == 0 && // 1칸 검사
+                        bingoBoard[3][1] == 0 && // 2칸 검사
+                        bingoBoard[3][2] == 0 && // 3칸 검사
+                        bingoBoard[3][3] == 0 && // 4칸 검사
+                        bingoBoard[3][4] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;  // 점수 +1
+                        width4 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (width4) continue;
+                }
+
+                // 가로 5번째 줄 빙고 여부
+                if (!width5)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[4][0] == 0 && // 1칸 검사
+                        bingoBoard[4][1] == 0 && // 2칸 검사
+                        bingoBoard[4][2] == 0 && // 3칸 검사
+                        bingoBoard[4][3] == 0 && // 4칸 검사
+                        bingoBoard[4][4] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;  // 점수 +1
+                        width5 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (width5) continue;
+                }
+
+                // --------------------------------------------------------------
+
+                // 세로 1번째 줄 빙고 여부
+                if (!height1)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][0] == 0 && // 1칸 검사
+                        bingoBoard[1][0] == 0 && // 2칸 검사
+                        bingoBoard[2][0] == 0 && // 3칸 검사
+                        bingoBoard[3][0] == 0 && // 4칸 검사
+                        bingoBoard[4][0] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;   // 점수 +1
+                        height1 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (height1) continue;
+                }
+
+                // 세로 2번째 줄 빙고 여부
+                if (!height2)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][1] == 0 && // 1칸 검사
+                        bingoBoard[1][1] == 0 && // 2칸 검사
+                        bingoBoard[2][1] == 0 && // 3칸 검사
+                        bingoBoard[3][1] == 0 && // 4칸 검사
+                        bingoBoard[4][1] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;   // 점수 +1
+                        height2 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (height2) continue;
+                }
+
+                // 세로 3번째 줄 빙고 여부
+                if (!height3)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][2] == 0 && // 1칸 검사
+                        bingoBoard[1][2] == 0 && // 2칸 검사
+                        bingoBoard[2][2] == 0 && // 3칸 검사
+                        bingoBoard[3][2] == 0 && // 4칸 검사
+                        bingoBoard[4][2] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;   // 점수 +1
+                        height3 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (height3) continue;
+                }
+
+                // 세로 4번째 줄 빙고 여부
+                if (!height4)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][3] == 0 && // 1칸 검사
+                        bingoBoard[1][3] == 0 && // 2칸 검사
+                        bingoBoard[2][3] == 0 && // 3칸 검사
+                        bingoBoard[3][3] == 0 && // 4칸 검사
+                        bingoBoard[4][3] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;   // 점수 +1
+                        height4 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (height4) continue;
+                }
+
+                // 세로 5번째 줄 빙고 여부
+                if (!height5)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][4] == 0 && // 1칸 검사
+                        bingoBoard[1][4] == 0 && // 2칸 검사
+                        bingoBoard[2][4] == 0 && // 3칸 검사
+                        bingoBoard[3][4] == 0 && // 4칸 검사
+                        bingoBoard[4][4] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;   // 점수 +1
+                        height5 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (height5) continue;
+                }
+
+                // --------------------------------------------------------------
+
+                // 대각선 빙고 여부 경우의 수 1
+                if (!diagnal1)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[0][0] == 0 && // 1칸 검사
+                        bingoBoard[1][1] == 0 && // 2칸 검사
+                        bingoBoard[2][2] == 0 && // 3칸 검사
+                        bingoBoard[3][3] == 0 && // 4칸 검사
+                        bingoBoard[4][4] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;    // 점수 +1
+                        diagnal1 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (diagnal1) continue;
+                }
+
+                // 대각선 빙고 여부 경우의 수 2
+                if (!diagnal2)
+                {
+                    // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
+                    if (bingoBoard[4][4] == 0 && // 1칸 검사
+                        bingoBoard[3][3] == 0 && // 2칸 검사
+                        bingoBoard[2][2] == 0 && // 3칸 검사
+                        bingoBoard[1][1] == 0 && // 4칸 검사
+                        bingoBoard[0][0] == 0)   // 5칸 검사
+                    {
+                        bingoScore++;    // 점수 +1
+                        diagnal2 = true; // 점수 중복 부여 방지
+                    }
+
+                    // 이미 빙고가 되어있는 상태이고, 점수까지 부여 받았으면 그냥 넘기기
+                    else if (diagnal2) continue;
+                }
             }
         }
     }
