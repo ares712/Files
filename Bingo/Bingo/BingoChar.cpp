@@ -34,18 +34,18 @@ void BingoChar::StartBingo()
     {
         system("cls");
 
-        cout << "==========================" << endl;
+        cout << "============================================" << endl;
 
         for (int i = 0; i < 5; ++i)
         {
             for (int j = 0; j < 5; ++j)
             {
-                cout << bingoBoard[i][j] << " ";
+                cout << bingoBoard[i][j] << "\t";
             }
             cout << endl;
         }
 
-        cout << "==========================" << endl;
+        cout << "============================================" << endl;
 
         cout << "1 ~ 25 사이의 숫자를 입력해주세요" << endl;
         cout << "점수 : " << bingoScore << endl;
@@ -291,11 +291,11 @@ void BingoChar::StartBingo()
                 if (!diagnal2)
                 {
                     // 5번째 줄이 빙고가 된게 처음이라는 점수 1점 부여
-                    if (bingoBoard[4][4] == 0 && // 1칸 검사
-                        bingoBoard[3][3] == 0 && // 2칸 검사
+                    if (bingoBoard[0][4] == 0 && // 1칸 검사
+                        bingoBoard[1][3] == 0 && // 2칸 검사
                         bingoBoard[2][2] == 0 && // 3칸 검사
-                        bingoBoard[1][1] == 0 && // 4칸 검사
-                        bingoBoard[0][0] == 0)   // 5칸 검사
+                        bingoBoard[3][1] == 0 && // 4칸 검사
+                        bingoBoard[4][0] == 0)   // 5칸 검사
                     {
                         bingoScore++;    // 점수 +1
                         diagnal2 = true; // 점수 중복 부여 방지

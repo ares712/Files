@@ -41,7 +41,6 @@ public:
 	int bingoBoard[5][5];
 
 	void BoardMixNumber();
-
 	void StartBingo();
 };
 
