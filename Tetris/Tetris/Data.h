@@ -5,23 +5,23 @@ class Data
 {
 public:
 
-	// 블럭들
-	int LBlock;
-	int JBlock;
-	int Zblock;
-	int Sblock;
-	int IBlock[4][1];
-	int OBlock[2][2];
-	int TBlock;
-
 	UINT bingoAres = 0;
-	void TBlock();
-
-	int score;
-
-	int randNum;
-
+	
+	char Block[2][3];
 	char map[20][10];
+	
+	int score;
+	int randNum;
+	int num;
+
+	// 블럭들
+	void IBlock();
+	void OBlock();
+	void TBlock();
+	void JBlock();
+	void LBlock();
+	void ZBlock();
+	void SBlock();
 
 	void Board(); // 맵
 	

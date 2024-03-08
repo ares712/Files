@@ -2,7 +2,11 @@
 
 int main()
 {
-	Data* data = new Data();
+	// Test* test;
+	// test = new Test();
+	// test->Render();
 
-	data->Board();
+	Data* data;
+	data = new Data();
+	data->StartTetris();
 }

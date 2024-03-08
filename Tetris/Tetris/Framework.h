@@ -8,4 +8,5 @@
 
 using namespace std;
 
-#include "Data.h"
+#include "Data.h"  // 블록 정의
+#include "Test.h"  // 블록 인스턴스 생성
